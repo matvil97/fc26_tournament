@@ -1,0 +1,43 @@
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/TON_DEPLOIEMENT/exec";
+
+const form = document.getElementById("registrationForm");
+const payBtn = document.getElementById("payBtn");
+const statusMessage = document.getElementById("statusMessage");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  payBtn.disabled = true;
+  statusMessage.textContent = "Création de votre paiement...";
+
+  const data = {
+    action: "create_checkout",
+    nomPrenom: document.getElementById("nomPrenom").value.trim(),
+    pseudo: document.getElementById("pseudo").value.trim(),
+    telephone: document.getElementById("telephone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    console: document.getElementById("console").value
+  };
+
+  try {
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (result.ok && result.checkoutUrl) {
+      window.location.href = result.checkoutUrl;
+      return;
+    }
+
+    throw new Error(result.error || "Impossible de créer la session Stripe.");
+  } catch (error) {
+    payBtn.disabled = false;
+    statusMessage.textContent = error.message;
+  }
+});

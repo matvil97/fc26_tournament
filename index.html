@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournoi FC26 - Inscription</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Tournoi FC26</h1>
+      <p class="subtitle">Samedi 9 mai 2026</p>
+
+      <div class="info-box">
+        <p><strong>Participation :</strong> 10 €</p>
+        <p><strong>Règle :</strong> l’inscription est validée uniquement après paiement.</p>
+      </div>
+
+      <form id="registrationForm">
+        <label for="nomPrenom">Nom / Prénom</label>
+        <input type="text" id="nomPrenom" name="nomPrenom" required />
+
+        <label for="pseudo">Pseudo gamer</label>
+        <input type="text" id="pseudo" name="pseudo" required />
+
+        <label for="telephone">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="console">Console</label>
+        <select id="console" name="console" required>
+          <option value="">Choisir</option>
+          <option value="PS5">PS5</option>
+          <option value="Xbox Series">Xbox Series</option>
+        </select>
+
+        <button type="submit" id="payBtn">S’inscrire et payer 10 €</button>
+        <p id="statusMessage"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
