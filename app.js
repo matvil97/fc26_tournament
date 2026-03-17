@@ -19,8 +19,6 @@ form.addEventListener("submit", async (e) => {
     console: document.getElementById("console").value
   };
 
-  console.log("Envoi vers Apps Script :", data);
-
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
@@ -36,7 +34,7 @@ form.addEventListener("submit", async (e) => {
     let result;
     try {
       result = JSON.parse(text);
-    } catch (parseError) {
+    } catch {
       throw new Error("Réponse invalide du serveur : " + text);
     }
 
@@ -48,7 +46,7 @@ form.addEventListener("submit", async (e) => {
 
     throw new Error(result.error || "Impossible de créer la session Stripe.");
   } catch (error) {
-    console.error("Erreur frontend :", error);
+    console.error(error);
     payBtn.disabled = false;
     statusMessage.textContent = error.message || "Une erreur est survenue.";
   }
