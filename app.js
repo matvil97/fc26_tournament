@@ -9,7 +9,7 @@ form.addEventListener("submit", async (e) => {
 
   payBtn.disabled = true;
   statusMessage.textContent = "Création de votre paiement...";
-
+//
   const data = {
     action: "create_checkout",
     nomPrenom: document.getElementById("nomPrenom").value.trim(),
