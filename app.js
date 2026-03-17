@@ -9,7 +9,7 @@ form.addEventListener("submit", async (e) => {
 
   payBtn.disabled = true;
   statusMessage.textContent = "Création de votre paiement...";
-//
+
   const data = {
     action: "create_checkout",
     nomPrenom: document.getElementById("nomPrenom").value.trim(),
@@ -18,6 +18,8 @@ form.addEventListener("submit", async (e) => {
     email: document.getElementById("email").value.trim(),
     console: document.getElementById("console").value
   };
+
+  console.log("Envoi vers Apps Script :", data);
 
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
@@ -28,16 +30,26 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify(data)
     });
 
-    const result = await response.json();
+    const text = await response.text();
+    console.log("Réponse brute Apps Script :", text);
+
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch (parseError) {
+      throw new Error("Réponse invalide du serveur : " + text);
+    }
 
     if (result.ok && result.checkoutUrl) {
+      statusMessage.textContent = "Redirection vers Stripe...";
       window.location.href = result.checkoutUrl;
       return;
     }
 
     throw new Error(result.error || "Impossible de créer la session Stripe.");
   } catch (error) {
+    console.error("Erreur frontend :", error);
     payBtn.disabled = false;
-    statusMessage.textContent = error.message;
+    statusMessage.textContent = error.message || "Une erreur est survenue.";
   }
 });
