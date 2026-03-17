@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrML9WhDUjPxJ1RbmDHS0tGv95ngLHQ0Th7ywDvbHA5G_vK7zttRIXyyApjgag4VHX/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyst3tVguSlIySk3tDXf7SHXLrdWtmZirLMBovBozroAL7PW-VwNeUHgB-4ru09ZP8/exec";
 
 const form = document.getElementById("registrationForm");
 const payBtn = document.getElementById("payBtn");
