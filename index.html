@@ -7,39 +7,72 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+
+  <!-- Background glow -->
+  <div class="bg-glow"></div>
+
   <main class="container">
     <section class="card">
-      <div class="badge">FC26 • Tournoi officiel</div>
-      <h1>Tournoi FC26</h1>
+
+      <!-- Badge -->
+      <div class="badge">🏆 FC26 • Tournoi officiel</div>
+
+      <!-- Title -->
+      <h1>TOURNOI FC26</h1>
       <p class="subtitle">Samedi 9 mai 2026</p>
 
+      <!-- Info -->
       <div class="info-box">
-        <p><strong>Participation :</strong> 10 €</p>
-        <p><strong>Inscription :</strong> confirmée uniquement après paiement</p>
+        <p><strong>💰 Participation :</strong> 10 €</p>
+        <p><strong>⚡ Inscription :</strong> confirmée uniquement après paiement</p>
+        <p><strong>🎮 Cross-play :</strong> activé</p>
       </div>
 
+      <!-- Form -->
       <form id="registrationForm">
-        <label for="nomPrenom">Nom / Prénom</label>
-        <input type="text" id="nomPrenom" name="nomPrenom" placeholder="Ex. Jean Dupont" required />
 
-        <label for="pseudo">Pseudo gamer</label>
-        <input type="text" id="pseudo" name="pseudo" placeholder="Ex. FCMaster75" required />
+        <label for="nomPrenom">👤 Nom / Prénom</label>
+        <input type="text" id="nomPrenom" placeholder="Ex. Jean Dupont" required />
 
-        <label for="telephone">Téléphone</label>
-        <input type="tel" id="telephone" name="telephone" placeholder="Ex. 06 12 34 56 78" required />
+        <label for="pseudo">🎯 Pseudo gamer</label>
+        <input type="text" id="pseudo" placeholder="Ex. FCMaster75" required />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Ex. joueur@email.com" required />
+        <label for="telephone">📱 Téléphone</label>
+        <input type="tel" id="telephone" placeholder="06 12 34 56 78" required />
 
-        <label for="console">Console</label>
-        <select id="console" name="console" required>
-          <option value="">Choisir une console</option>
-          <option value="PS5">PS5</option>
-          <option value="Xbox Series">Xbox Series</option>
+        <label for="email">📧 Email</label>
+        <input type="email" id="email" placeholder="joueur@email.com" required />
+
+        <!-- 🎮 CONSOLE SELECT PREMIUM -->
+        <label for="console">🎮 Plateforme</label>
+        <select id="console" required>
+          <option value="">Choisir une plateforme</option>
+
+          <optgroup label="🎮 PlayStation">
+            <option value="PS5">🎮 PS5</option>
+            <option value="PS4">🎮 PS4</option>
+          </optgroup>
+
+          <optgroup label="🟢 Xbox">
+            <option value="Xbox Series X">🟢 Xbox Series X</option>
+            <option value="Xbox Series S">🟢 Xbox Series S</option>
+            <option value="Xbox One X">🟢 Xbox One X</option>
+            <option value="Xbox One S">🟢 Xbox One S</option>
+            <option value="Xbox One">🟢 Xbox One</option>
+          </optgroup>
+
+          <optgroup label="💻 PC">
+            <option value="PC">💻 PC</option>
+          </optgroup>
         </select>
 
-        <button type="submit" id="payBtn">S’inscrire et payer 10 €</button>
+        <!-- CTA -->
+        <button type="submit" id="payBtn">
+          ⚡ S’inscrire et payer 10 €
+        </button>
+
         <p id="statusMessage"></p>
+
       </form>
     </section>
   </main>
