@@ -4,35 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tournoi FC26 - Inscription</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <main class="container">
     <section class="card">
+      <div class="badge">FC26 • Tournoi officiel</div>
       <h1>Tournoi FC26</h1>
       <p class="subtitle">Samedi 9 mai 2026</p>
 
       <div class="info-box">
         <p><strong>Participation :</strong> 10 €</p>
-        <p><strong>Règle :</strong> l’inscription est validée uniquement après paiement.</p>
+        <p><strong>Inscription :</strong> confirmée uniquement après paiement</p>
       </div>
 
       <form id="registrationForm">
         <label for="nomPrenom">Nom / Prénom</label>
-        <input type="text" id="nomPrenom" name="nomPrenom" required />
+        <input type="text" id="nomPrenom" name="nomPrenom" placeholder="Ex. Jean Dupont" required />
 
         <label for="pseudo">Pseudo gamer</label>
-        <input type="text" id="pseudo" name="pseudo" required />
+        <input type="text" id="pseudo" name="pseudo" placeholder="Ex. FCMaster75" required />
 
         <label for="telephone">Téléphone</label>
-        <input type="tel" id="telephone" name="telephone" required />
+        <input type="tel" id="telephone" name="telephone" placeholder="Ex. 06 12 34 56 78" required />
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" placeholder="Ex. joueur@email.com" required />
 
         <label for="console">Console</label>
         <select id="console" name="console" required>
-          <option value="">Choisir</option>
+          <option value="">Choisir une console</option>
           <option value="PS5">PS5</option>
           <option value="Xbox Series">Xbox Series</option>
         </select>
@@ -43,6 +44,6 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>
