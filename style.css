@@ -517,3 +517,33 @@ select option {
     text-align: center;
   }
 }
+.live-counter {
+  margin-top: 20px;
+  margin-bottom: 22px;
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.live-counter-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.live-counter-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.live-counter-subtext {
+  margin-top: 6px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
