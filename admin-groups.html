@@ -3,24 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Poules - Tournoi FC26</title>
+  <title>Admin League - Gestion des poules</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="bg-glow"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">🏆 FC26 League</a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Inscriptions</a>
+        <a href="/groups.html" class="nav-link">Poules & classements</a>
+      </div>
+    </div>
+  </nav>
 
   <main class="container admin-container">
+    <section class="page-hero">
+      <div class="badge">Espace organisation</div>
+      <h1>Gestion des Poules</h1>
+      <p class="subtitle">
+        Génération des groupes, saisie des scores et mise à jour automatique des classements.
+      </p>
+    </section>
+
     <section class="admin-shell">
       <div class="admin-topbar">
         <div>
-          <div class="badge">🏆 Admin • Phase de poules</div>
-          <h1 class="admin-title">Gestion des poules FC26</h1>
-          <p class="subtitle">8 poules de 5 joueurs • scores • classement automatique</p>
+          <h2 class="admin-title" style="font-size:2rem;">Administration de la phase de groupes</h2>
+          <p class="subtitle">Jusqu’à 40 joueurs • championnat en poules • classement en direct</p>
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <button id="generateGroupsBtn" class="secondary-btn">🎲 Générer les poules</button>
-          <button id="refreshGroupsBtn" class="secondary-btn">🔄 Actualiser</button>
+          <button id="generateGroupsBtn" class="secondary-btn">Générer les poules</button>
+          <button id="refreshGroupsBtn" class="secondary-btn">Actualiser</button>
         </div>
       </div>
 
@@ -48,7 +63,7 @@
 
       <section class="panel" style="margin-bottom:24px;">
         <div class="panel-head">
-          <h2>Poules & classements</h2>
+          <h2>Composition des poules & classement</h2>
         </div>
         <div id="groupsStandingsContainer" class="groups-grid">
           <div class="empty-cell">Chargement...</div>
@@ -57,7 +72,7 @@
 
       <section class="panel">
         <div class="panel-head">
-          <h2>Matchs de poules</h2>
+          <h2>Résultats à saisir</h2>
           <select id="groupFilter" class="search-input" style="max-width:220px;">
             <option value="">Toutes les poules</option>
             <option value="A">Poule A</option>
@@ -93,7 +108,7 @@
         </div>
       </section>
 
-      <p id="adminGroupsStatus" style="margin-top:16px; color:#94a3b8;"></p>
+      <p id="adminGroupsStatus" style="margin-top:16px; color:#9fb0c9;"></p>
     </section>
   </main>
 

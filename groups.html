@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poules & Classements - Tournoi FC26</title>
+  <title>FC26 League - Poules & Classements</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">🏆 FC26 Tournament</a>
+      <a href="/" class="nav-brand">🏆 FC26 League</a>
       <div class="nav-links">
         <a href="/" class="nav-link">Inscriptions</a>
         <a href="/groups.html" class="nav-link active">Poules & classements</a>
@@ -17,90 +17,84 @@
     </div>
   </nav>
 
-  <div class="bg-glow"></div>
-
   <main class="container public-page">
-    <section class="admin-shell">
-      <div class="admin-topbar">
-        <div>
-          <div class="badge">📊 Vue publique</div>
-          <h1 class="admin-title">Poules & Classements</h1>
-          <p class="subtitle">Consulte les groupes, les matchs et les classements en direct</p>
-        </div>
+    <section class="page-hero">
+      <div class="badge">Classements officiels</div>
+      <h1>Poules & Classements</h1>
+      <p class="subtitle">
+        Suis l’évolution du championnat en direct : groupes, points, différence de buts et résultats.
+      </p>
+    </section>
 
-        <button id="refreshPublicBtn" class="secondary-btn">🔄 Actualiser</button>
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Poules actives</span>
+        <strong class="stat-value" id="publicGroupsCount">0</strong>
       </div>
 
-      <section class="stats-grid">
-        <div class="stat-card">
-          <span class="stat-label">Poules actives</span>
-          <strong class="stat-value" id="publicGroupsCount">0</strong>
-        </div>
+      <div class="stat-card">
+        <span class="stat-label">Joueurs assignés</span>
+        <strong class="stat-value" id="publicPlayersCount">0</strong>
+      </div>
 
-        <div class="stat-card">
-          <span class="stat-label">Joueurs assignés</span>
-          <strong class="stat-value" id="publicPlayersCount">0</strong>
-        </div>
+      <div class="stat-card">
+        <span class="stat-label">Matchs joués</span>
+        <strong class="stat-value" id="publicPlayedMatches">0</strong>
+      </div>
 
-        <div class="stat-card">
-          <span class="stat-label">Matchs joués</span>
-          <strong class="stat-value" id="publicPlayedMatches">0</strong>
-        </div>
-
-        <div class="stat-card">
-          <span class="stat-label">Matchs restants</span>
-          <strong class="stat-value" id="publicRemainingMatches">0</strong>
-        </div>
-      </section>
-
-      <section class="panel" style="margin-bottom:24px;">
-        <div class="panel-head">
-          <h2>Classements par poule</h2>
-        </div>
-        <div id="publicGroupsContainer" class="groups-grid">
-          <div class="empty-cell">Chargement...</div>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="panel-head">
-          <h2>Matchs de poules</h2>
-          <select id="publicGroupFilter" class="search-input" style="max-width:220px;">
-            <option value="">Toutes les poules</option>
-            <option value="A">Poule A</option>
-            <option value="B">Poule B</option>
-            <option value="C">Poule C</option>
-            <option value="D">Poule D</option>
-            <option value="E">Poule E</option>
-            <option value="F">Poule F</option>
-            <option value="G">Poule G</option>
-            <option value="H">Poule H</option>
-          </select>
-        </div>
-
-        <div class="table-wrap">
-          <table class="players-table">
-            <thead>
-              <tr>
-                <th>Poule</th>
-                <th>Match</th>
-                <th>Domicile</th>
-                <th>Score</th>
-                <th>Extérieur</th>
-                <th>Statut</th>
-              </tr>
-            </thead>
-            <tbody id="publicMatchesTableBody">
-              <tr>
-                <td colspan="6" class="empty-cell">Chargement des matchs...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <p id="publicStatus" style="margin-top:16px; color:#94a3b8;"></p>
+      <div class="stat-card">
+        <span class="stat-label">Matchs restants</span>
+        <strong class="stat-value" id="publicRemainingMatches">0</strong>
+      </div>
     </section>
+
+    <section class="panel" style="margin-bottom:24px;">
+      <div class="panel-head">
+        <h2>Classements par poule</h2>
+      </div>
+      <div id="publicGroupsContainer" class="groups-grid">
+        <div class="empty-cell">Chargement...</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Calendrier / Résultats</h2>
+        <select id="publicGroupFilter" class="search-input" style="max-width:220px;">
+          <option value="">Toutes les poules</option>
+          <option value="A">Poule A</option>
+          <option value="B">Poule B</option>
+          <option value="C">Poule C</option>
+          <option value="D">Poule D</option>
+          <option value="E">Poule E</option>
+          <option value="F">Poule F</option>
+          <option value="G">Poule G</option>
+          <option value="H">Poule H</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table class="players-table">
+          <thead>
+            <tr>
+              <th>Poule</th>
+              <th>Match</th>
+              <th>Domicile</th>
+              <th>Score</th>
+              <th>Extérieur</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody id="publicMatchesTableBody">
+            <tr>
+              <td colspan="6" class="empty-cell">Chargement des matchs...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="publicStatus" style="margin-top:16px; color:#9fb0c9;"></p>
   </main>
 
   <script src="/groups.js"></script>
